@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\earrings-api.props" />
+</Project>
