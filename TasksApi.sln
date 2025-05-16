@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "earrings-api", "earrings-api\earrings-api.csproj", "{308D1D4E-9D3A-47A8-96F5-B927B0E35F4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TasksApi", "earrings-api\TasksApi.csproj", "{308D1D4E-9D3A-47A8-96F5-B927B0E35F4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

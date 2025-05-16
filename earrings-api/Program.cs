@@ -5,6 +5,7 @@ using earrings_api.Shared;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+Auth auth = new();
 
 var ambiente = builder.Configuration["Environment"] ?? "";
 var connectionString = builder.Configuration["ConnectionDB:Finiquitos:" + ambiente];
@@ -35,7 +36,7 @@ builder.Services.AddCors(option => option.AddPolicy("AllowAnyOrigin", builder =>
 }));
 
 // Valida el token proporcionado en el header
-Auth.ValidaJWT(builder.Services);
+auth.ValidateJWT(builder.Services);
 
 var app = builder.Build();
 

@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using earrings_api.Features.Notes.Models;
 
 namespace earrings_api.Features.Notes
 {
@@ -6,24 +7,37 @@ namespace earrings_api.Features.Notes
     {
         #region Nombres procedures
 
-        //internal const string spGetRoles = "SP_MF_GET_ROLES";
+        internal const string spGetNotes = "SP_GET_NOTES";
+        internal const string spCreateNote = "SP_CREATE_NOTE";
 
         #endregion
 
         #region Parámetros
 
-        //internal static DynamicParameters GetRolesParams(FiltroRol filtro)
-        //{
-        //    DynamicParameters parameters = new(new
-        //    {
-        //        @p_id_rol = filtro.Id_Rol,
-        //        @p_activo = filtro.Activo,
-        //        @p_nombre = filtro.Nombre,
-        //        @p_codigo = filtro.Codigo
-        //    });
+        internal static DynamicParameters GetNotesParams(NoteFilter filter)
+        {
+            DynamicParameters parameters = new(new
+            {
+                @p_note_id = filter.NoteId,
+                @p_active = filter.Active,
+                @p_user_id = filter.UserId
+            });
 
-        //    return parameters;
-        //}
+            return parameters;
+        }
+
+        internal static DynamicParameters CreateNoteParams(NoteDao note)
+        {
+            DynamicParameters parameters = new(new
+            {
+                @p_value = note.Value,
+                @p_created_by = note.ModificatedBy,
+                @p_title = note.Title,
+                @p_user_id = note.UserId
+            });
+
+            return parameters;
+        }
 
         #endregion
     }

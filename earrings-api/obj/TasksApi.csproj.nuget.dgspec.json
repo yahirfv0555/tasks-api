@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\projects\\tasks-api\\earrings-api\\earrings-api.csproj": {}
+    "C:\\projects\\tasks-api\\earrings-api\\TasksApi.csproj": {}
   },
   "projects": {
-    "C:\\projects\\tasks-api\\earrings-api\\earrings-api.csproj": {
+    "C:\\projects\\tasks-api\\earrings-api\\TasksApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projects\\tasks-api\\earrings-api\\earrings-api.csproj",
-        "projectName": "earrings-api",
-        "projectPath": "C:\\projects\\tasks-api\\earrings-api\\earrings-api.csproj",
+        "projectUniqueName": "C:\\projects\\tasks-api\\earrings-api\\TasksApi.csproj",
+        "projectName": "TasksApi",
+        "projectPath": "C:\\projects\\tasks-api\\earrings-api\\TasksApi.csproj",
         "packagesPath": "C:\\Users\\humbe\\.nuget\\packages\\",
         "outputPath": "C:\\projects\\tasks-api\\earrings-api\\obj\\",
         "projectStyle": "PackageReference",

@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "w0/lLaFdm7XnjU7mzYV2yNbfz09ShB1F1npDNO8HCJY=",
-  "Source": "earrings-api",
-  "BasePath": "_content/earrings-api",
+  "Hash": "W4eB0WIfX93pg8F0wrCy6QG1NbABew8Cyy7+PFBg6eo=",
+  "Source": "TasksApi",
+  "BasePath": "_content/TasksApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

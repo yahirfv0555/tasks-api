@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A8Zgxot2Rat3Do0USnRG4HA4ckLD1kQED2hKewcaofiSpnRrkuZEqzriL612FrcwlrWtMoPSSKK92lFGgaR1CA==",
+  "dgSpecHash": "TrIOhMXSeRXkEsMiZE0lC6qQyBt2wrQhfE74PyvuqLJzIWqfyy4vOCMbEwT45XiA3+o6xbSjoWfhDiJUW+lp7w==",
   "success": true,
-  "projectFilePath": "C:\\projects\\earrings-api\\earrings-api\\earrings-api.csproj",
+  "projectFilePath": "C:\\projects\\tasks-api\\earrings-api\\TasksApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\humbe\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\humbe\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

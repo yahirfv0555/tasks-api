@@ -1,4 +1,5 @@
 ﻿using earrings_api.Features.Notes;
+using EarringsApi.Features.Users;
 
 namespace earrings_api
 {
@@ -8,6 +9,9 @@ namespace earrings_api
         {
             services.AddScoped<NotesController>();
             services.AddScoped<NotesRepository>();
+
+            services.AddScoped<UsersController>();
+            services.AddScoped<UsersRepository>();
         }
     }
 }

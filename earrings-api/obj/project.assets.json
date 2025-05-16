@@ -3020,11 +3020,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projects\\earrings-api\\earrings-api\\earrings-api.csproj",
-      "projectName": "earrings-api",
-      "projectPath": "C:\\projects\\earrings-api\\earrings-api\\earrings-api.csproj",
+      "projectUniqueName": "C:\\projects\\tasks-api\\earrings-api\\TasksApi.csproj",
+      "projectName": "TasksApi",
+      "projectPath": "C:\\projects\\tasks-api\\earrings-api\\TasksApi.csproj",
       "packagesPath": "C:\\Users\\humbe\\.nuget\\packages\\",
-      "outputPath": "C:\\projects\\earrings-api\\earrings-api\\obj\\",
+      "outputPath": "C:\\projects\\tasks-api\\earrings-api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\humbe\\AppData\\Roaming\\NuGet\\NuGet.Config",
