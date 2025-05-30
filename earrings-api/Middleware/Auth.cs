@@ -17,17 +17,17 @@ namespace earrings_api.Middleware
             string secretKey = JsonConfiguration.AppSetting.GetValue<string>("SecretKey") ?? "";
 
             services
-            .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, jwtBearerOptions =>
-            {
-                jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters
-                {
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
-                    ValidIssuer = payloadIssuer,
-                    ValidAudience = payloadAudience,
-                    RequireExpirationTime = true
-                };
-            });
+                .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, jwtBearerOptions => {
+                        jwtBearerOptions.TokenValidationParameters = new()
+                        {
+                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
+                            ValidIssuer = payloadIssuer,
+                            ValidAudience = payloadAudience,
+                            RequireExpirationTime = true
+                        };
+                    }
+                );
         }
 
         internal string GetJwt(UserDto user)

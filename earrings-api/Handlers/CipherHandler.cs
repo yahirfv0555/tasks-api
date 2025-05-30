@@ -22,14 +22,14 @@ namespace EarringsApi.Handlers
                 rng.GetBytes(salt);
             }
 
-            using var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100_000, HashAlgorithmName.SHA256);
+            using Rfc2898DeriveBytes pbkdf2 = new(password, salt, 100_000, HashAlgorithmName.SHA256);
             byte[] hash = pbkdf2.GetBytes(64);
             return (hash, salt);
         }
 
         internal AuthenticationStatus ComparePasswords(byte[] hash, byte[] salt, string password)
         {
-            using var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100_000, HashAlgorithmName.SHA256);
+            using Rfc2898DeriveBytes pbkdf2 = new(password, salt, 100_000, HashAlgorithmName.SHA256);
 
             byte[] computedHash = pbkdf2.GetBytes(64);
 

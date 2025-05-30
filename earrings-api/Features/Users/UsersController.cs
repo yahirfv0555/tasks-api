@@ -1,6 +1,4 @@
-﻿using earrings_api.Features.Notes.Models;
-using earrings_api.Features.Notes;
-using EarringsApi.Models;
+﻿using EarringsApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +6,6 @@ using EarringsApi.Features.Users.Models;
 
 namespace EarringsApi.Features.Users
 {
-    [AllowAnonymous]
     [EnableCors("AllowAnyOrigin")]
     [Route("api/v1/[controller]")]
     [ApiController]
@@ -30,6 +27,7 @@ namespace EarringsApi.Features.Users
             return Ok(notes);
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<ActionResult<LoginExecution>> Login([FromBody] LoginSession loginSession)
         {
@@ -38,6 +36,7 @@ namespace EarringsApi.Features.Users
             return Ok(loginExecution);
         }
 
+        [AllowAnonymous]
         [HttpPost("signup")]
         public async Task<ActionResult<Execution>> SignUp([FromBody] SignUpSession signUpSession)
         {

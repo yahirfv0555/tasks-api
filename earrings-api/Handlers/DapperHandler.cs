@@ -17,7 +17,7 @@ namespace EarringsApi.Handlers
 
         public async static Task<List<T>> GetFromProcedure<T>(string spName, DynamicParameters? spParams = null, CommandType commandType = CommandType.StoredProcedure)
         {
-            await using var connection = new SqlConnection(GetConnectionDB());
+            await using SqlConnection connection = new(GetConnectionDB());
 
             if (connection.State != ConnectionState.Open)
                 await connection.OpenAsync();
@@ -29,7 +29,7 @@ namespace EarringsApi.Handlers
 
         public static async Task<Execution> SetFromProcedure(string spName, DynamicParameters spParams, CommandType commandType = CommandType.StoredProcedure)
         {
-            await using SqlConnection connection = new SqlConnection(GetConnectionDB());
+            await using SqlConnection connection = new(GetConnectionDB());
 
             if (connection.State != ConnectionState.Open)
                 await connection.OpenAsync();

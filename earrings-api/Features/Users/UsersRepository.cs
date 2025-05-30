@@ -93,7 +93,7 @@ namespace EarringsApi.Features.Users
             }
         }
 
-        internal async Task<Execution> SignUp(SignUpSession signUpSession)
+        internal async Task<LoginExecution> SignUp(SignUpSession signUpSession)
         {
             try
             {
@@ -103,7 +103,31 @@ namespace EarringsApi.Features.Users
 
                 Execution execution = await CreateUser(user);
 
-                return execution;
+                if (!execution.Successful)
+                {
+                    return (LoginExecution)execution;
+                }
+
+                LoginSession loginSession = new() 
+                {
+                    Email = user.Email!,
+                    Password = signUpSession.Password
+                };
+
+                LoginExecution loginExecution = await Login(loginSession);
+
+                return new()
+                {
+                    User = new()
+                    {
+                        UserId = execution.Id ?? 0,
+                        Email = user.Email!,
+                        Name = user.Name!,
+                    },
+                    Jwt = loginExecution.Jwt,
+                    Successful  = loginExecution.Successful,
+                    Message = loginExecution.Successful ? "Usuario creado correctamente" : "Ocurrió un error al iniciar sesión"
+                };
             }
             catch (Exception ex)
             {
