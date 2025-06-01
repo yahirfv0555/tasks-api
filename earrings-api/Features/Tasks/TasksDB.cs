@@ -8,7 +8,7 @@ namespace earrings_api.Features.Tasks
         #region Nombres procedures
 
         internal const string spGetTasks = "SP_GET_TASKS";
-        internal const string spCreateTask = "SP_CREATE_TASKS";
+        internal const string spCreateTask = "SP_CREATE_TASK";
 
         #endregion
 
@@ -18,7 +18,7 @@ namespace earrings_api.Features.Tasks
         {
             DynamicParameters parameters = new(new
             {
-                @p_note_id = filter.TaskId,
+                @p_task_id = filter.TaskId,
                 @p_active = filter.Active,
                 @p_date = filter.Date,
                 @p_from_date = filter.FromDate,
@@ -32,7 +32,7 @@ namespace earrings_api.Features.Tasks
         {
             DynamicParameters parameters = new(new
             {
-                @p_value = note.Value,
+                @p_description = note.Description,
                 @p_created_by = note.ModificatedBy,
                 @p_title = note.Title,
                 @p_date = note.Date,

@@ -22,8 +22,8 @@ ServiceRegistrations.RegisterServices(builder.Services);
 
 // Add services to the container.
 builder.Services
-    .AddControllers()
-    .AddJsonOptions(opciones => opciones.JsonSerializerOptions.PropertyNamingPolicy = new JsonNamingPolicyHandler()); // Cambia a minúsculas propiedades
+    .AddControllers();
+    //.AddJsonOptions(opciones => opciones.JsonSerializerOptions.PropertyNamingPolicy = new JsonNamingPolicyHandler()); // Cambia a minúsculas propiedades
 
 // Aplica a los controladores el filtro Authorize (según las reglas establecidas)
 builder.Services
