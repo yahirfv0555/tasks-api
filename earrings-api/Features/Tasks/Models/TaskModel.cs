@@ -27,9 +27,10 @@
     public class TaskDao
     {
         public int? TaskId { get; set; }
-        public string? Description { get; set; } = "";
+        public bool? Active { get; set; }
+        public string? Description { get; set; }
         public int ModificatedBy { get; set; }
-        public string? Title { get; set; } = "";
+        public string? Title { get; set; }
         public DateTime Date { get; set; } = DateTime.Now;
         public int? UserId { get; set; }
     }
@@ -37,6 +38,7 @@
     public class TaskFilter
     {
         public int? TaskId { get; set; }
+        public string? Title { get; set; }
         public bool? Active { get; set; }
         public DateTime? Date { get; set; }
         public DateTime? FromDate { get; set; }

@@ -75,6 +75,11 @@
         "IsRequired": false
       },
       {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "Active",
         "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
@@ -118,6 +123,58 @@
       {
         "Name": "task",
         "Type": "earrings_api.Features.Notes.Models.TaskDao",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EarringsApi.Models.Execution",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "earrings_api.Features.Tasks.TasksController",
+    "Method": "UpdateTask",
+    "RelativePath": "api/v1/tasks",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "task",
+        "Type": "earrings_api.Features.Notes.Models.TaskDao",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EarringsApi.Models.Execution",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "earrings_api.Features.Tasks.TasksController",
+    "Method": "DeleteTask",
+    "RelativePath": "api/v1/tasks",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filter",
+        "Type": "earrings_api.Features.Notes.Models.TaskFilter",
         "IsRequired": true
       }
     ],

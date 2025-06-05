@@ -33,5 +33,21 @@ namespace earrings_api.Features.Tasks
             return execution;
         }
 
+        [HttpPut]
+        public async Task<ActionResult<Execution>> UpdateTask([FromBody] TaskDao task)
+        {
+            Execution execution = await tasksRepository.UpdateTask(task);
+
+            return execution;
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult<Execution>> DeleteTask([FromBody] TaskFilter filter)
+        {
+            Execution execution = await tasksRepository.DeleteTask(filter);
+
+            return Ok(execution);
+        }
+
     }
 }
