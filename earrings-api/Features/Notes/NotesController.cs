@@ -25,6 +25,14 @@ namespace earrings_api.Features.Notes
             return Ok(notes);
         }
 
+        [HttpGet("tags")]
+        public async Task<ActionResult<List<TagDto>>> GetTags([FromQuery] TagFilter filter)
+        {
+            List<TagDto> tags = await notesRepository.GetTags(filter);
+
+            return Ok(tags);
+        }
+
         [HttpPost]
         public async Task<ActionResult<Execution>> CreateNote([FromBody] NoteDao note)
         {

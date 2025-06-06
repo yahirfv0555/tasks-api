@@ -10,7 +10,8 @@
         public DateTime Modification_Date { get; set; } 
         public int ModificatedBy { get; set; }
         public string Title { get; set; } = "";
-        public int? User_Id { get; set; }
+        public int User_Id { get; set; }
+        public string Tag { get; set; } = "";
     }
 
     public class NoteDto
@@ -20,16 +21,23 @@
         public string Title { get; set; } = "";
         public int UserId { get; set; }
         public string UserName { get; set; } = "";
+        public string Tag { get; set; } = "";
+    }
+
+    public class TagDto
+    {
+        public string Tag { get; set; } = "";
     }
 
     public class NoteDao
     {
         public int? NoteId { get; set; }
-        public bool Active { get; set; }
+        public bool? Active { get; set; }
         public string? Description { get; set; }
         public int ModificatedBy { get; set; }
         public string? Title { get; set; }
         public int? UserId { get; set; }
+        public string? Tag { get; set; }
     }
 
     public class NoteFilter
@@ -38,5 +46,12 @@
         public bool? Active { get; set; }
         public int? UserId { get; set; }
         public string? Title { get; set; }
+        public string? Tags { get; set; }
+    }
+
+    public class TagFilter
+    {
+        public int? UserId { get; set; }
+        public string? Tags { get; set; }
     }
 }

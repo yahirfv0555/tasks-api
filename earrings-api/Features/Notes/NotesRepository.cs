@@ -28,6 +28,22 @@ namespace earrings_api.Features.Notes
             }
         }
 
+        internal async Task<List<TagDto>> GetTags(TagFilter filter)
+        {
+            var spParams = NotesDB.GetNotesTagsParams(filter);
+
+            try
+            {
+                List<TagDto> tags = await dapperHandler.GetFromProcedure<TagDto>(NotesDB.spGetNotesTags, spParams);
+
+                return tags;
+            }
+            catch (Exception)
+            {
+                return [];
+            }
+        }
+
         internal async Task<Execution> CreateNote(NoteDao note)
         {
             var spParams = NotesDB.CreateNoteParams(note);
