@@ -8,14 +8,19 @@ namespace EarringsApi.Handlers
 {
     public class DapperHandler
     {
-        private static readonly string envConfig = JsonConfiguration.GetEnvironment();
+        private readonly string envConfig;
 
-        private static string GetConnectionDB(string keyDB = "Tasks")
+        public DapperHandler()
+        {
+            envConfig = JsonConfiguration.GetEnvironment();
+        }
+
+        private string GetConnectionDB(string keyDB = "Tasks")
         {
             return JsonConfiguration.AppSetting[$"ConnectionDB:{keyDB}:{envConfig}"] ?? "";
         }
 
-        public async static Task<List<T>> GetFromProcedure<T>(string spName, DynamicParameters? spParams = null, CommandType commandType = CommandType.StoredProcedure)
+        public async Task<List<T>> GetFromProcedure<T>(string spName, DynamicParameters? spParams = null, CommandType commandType = CommandType.StoredProcedure)
         {
             await using SqlConnection connection = new(GetConnectionDB());
 
@@ -27,7 +32,7 @@ namespace EarringsApi.Handlers
             return result.ToList();
         }
 
-        public static async Task<Execution> SetFromProcedure(string spName, DynamicParameters spParams, CommandType commandType = CommandType.StoredProcedure)
+        public async Task<Execution> SetFromProcedure(string spName, DynamicParameters spParams, CommandType commandType = CommandType.StoredProcedure)
         {
             await using SqlConnection connection = new(GetConnectionDB());
 

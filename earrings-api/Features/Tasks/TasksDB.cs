@@ -36,10 +36,10 @@ namespace earrings_api.Features.Tasks
             DynamicParameters parameters = new(new
             {
                 @p_description = task.Description,
-                @p_created_by = task.ModificatedBy,
                 @p_title = task.Title,
                 @p_date = task.Date,
-                @p_user_id = task.UserId
+                @p_user_id = task.UserId,
+                @p_created_by = task.ModificatedBy
             });
 
             return parameters;
@@ -52,10 +52,10 @@ namespace earrings_api.Features.Tasks
                 @p_task_id = task.TaskId,
                 @p_active = task.Active,
                 @p_description = task.Description,
-                @p_modificated_by = task.ModificatedBy,
                 @p_title = task.Title,
                 @p_date = task.Date,
-                @p_user_id = task.UserId
+                @p_user_id = task.UserId,
+                @p_modificated_by = task.ModificatedBy,
             });
 
             return parameters;

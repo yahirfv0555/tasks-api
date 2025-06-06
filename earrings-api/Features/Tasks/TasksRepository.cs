@@ -6,7 +6,12 @@ namespace earrings_api.Features.Tasks
 {
     public class TasksRepository
     {
-        public TasksRepository() { }
+        private readonly DapperHandler dapperHandler;
+
+        public TasksRepository()
+        {
+            dapperHandler = new();
+        }
 
         internal async Task<List<TaskDto>> GetTasks(TaskFilter filter)
         {
@@ -14,7 +19,7 @@ namespace earrings_api.Features.Tasks
 
             try
             {
-                List<TaskDto> tasks = await DapperHandler.GetFromProcedure<TaskDto>(TasksDB.spGetTasks, spParams);
+                List<TaskDto> tasks = await dapperHandler.GetFromProcedure<TaskDto>(TasksDB.spGetTasks, spParams);
 
                 return tasks;
             }
@@ -30,7 +35,7 @@ namespace earrings_api.Features.Tasks
             var spParams = TasksDB.CreateTaskParams(task);
             try
             {
-                Execution execution = await DapperHandler.SetFromProcedure(TasksDB.spCreateTask, spParams);
+                Execution execution = await dapperHandler.SetFromProcedure(TasksDB.spCreateTask, spParams);
 
                 return execution;
             } 
@@ -49,7 +54,7 @@ namespace earrings_api.Features.Tasks
             var spParams = TasksDB.UpdateTaskParams(task);
             try
             {
-                Execution execution = await DapperHandler.SetFromProcedure(TasksDB.spUpdateTask, spParams);
+                Execution execution = await dapperHandler.SetFromProcedure(TasksDB.spUpdateTask, spParams);
 
                 return execution;
             }
@@ -68,7 +73,7 @@ namespace earrings_api.Features.Tasks
             var spParams = TasksDB.DeleteTaskParams(filter);
             try
             {
-                Execution execution = await DapperHandler.SetFromProcedure(TasksDB.spDeleteTask, spParams);
+                Execution execution = await dapperHandler.SetFromProcedure(TasksDB.spDeleteTask, spParams);
 
                 return execution;
             }

@@ -21,6 +21,11 @@
         "Name": "UserId",
         "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -46,6 +51,58 @@
       {
         "Name": "note",
         "Type": "earrings_api.Features.Notes.Models.NoteDao",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EarringsApi.Models.Execution",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "earrings_api.Features.Notes.NotesController",
+    "Method": "UpdateNote",
+    "RelativePath": "api/v1/notes",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "note",
+        "Type": "earrings_api.Features.Notes.Models.NoteDao",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EarringsApi.Models.Execution",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "earrings_api.Features.Notes.NotesController",
+    "Method": "DeleteNote",
+    "RelativePath": "api/v1/notes",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filter",
+        "Type": "earrings_api.Features.Notes.Models.NoteFilter",
         "IsRequired": true
       }
     ],

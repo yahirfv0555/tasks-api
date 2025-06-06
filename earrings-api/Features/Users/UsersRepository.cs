@@ -8,10 +8,12 @@ namespace EarringsApi.Features.Users
 {
     public class UsersRepository
     {
-        internal readonly CipherHandler cipherHandler;
-        internal readonly Auth auth;
+        private readonly DapperHandler dapperHandler;
+        private readonly CipherHandler cipherHandler;
+        private readonly Auth auth;
         public UsersRepository() 
         {
+            dapperHandler = new();
             cipherHandler = new();
             auth = new();
         }
@@ -83,7 +85,7 @@ namespace EarringsApi.Features.Users
 
             try
             {
-                List<UserDto> users = await DapperHandler.GetFromProcedure<UserDto>(UsersDB.spGetUsers, spParms);
+                List<UserDto> users = await dapperHandler.GetFromProcedure<UserDto>(UsersDB.spGetUsers, spParms);
 
                 return users;
             }
@@ -146,7 +148,7 @@ namespace EarringsApi.Features.Users
             try
             {
 
-                Execution execution = await DapperHandler.SetFromProcedure(UsersDB.spCreateUser, spParams);
+                Execution execution = await dapperHandler.SetFromProcedure(UsersDB.spCreateUser, spParams);
 
                 return execution;
             }
