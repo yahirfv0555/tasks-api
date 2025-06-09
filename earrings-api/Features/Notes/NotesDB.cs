@@ -72,11 +72,11 @@ namespace earrings_api.Features.Notes
             return parameters;
         }
 
-        internal static DynamicParameters DeleteNoteParams(NoteFilter note)
+        internal static DynamicParameters DeleteNoteParams(NoteFilter filter)
         {
             DynamicParameters parameters = new(new
             {
-                @p_note_id = note.NoteId
+                @p_note_id = filter.NoteId
             });
 
             return parameters;
